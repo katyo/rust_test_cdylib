@@ -115,3 +115,20 @@ Dynamic section at offset 0x2dbb8 contains 28 entries:
 The ".init_array" section less by 8 bytes.
 
 Also the `myplugin_initialize` symbol missing in ".symtab" section of optimized shared object.
+
+In addition I added the reference example in C which demonstrates expected behavior:
+
+```c
+#include <stdio.h>
+
+__attribute__((constructor))
+void myplugin_initialize(void) {
+  printf("myplugin initialized\n");
+}
+```
+
+```shell
+$ make
+myplugin initialized
+plugins loaded
+```
