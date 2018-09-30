@@ -2,7 +2,7 @@
 
 This repo demonstrates strange behavior of dylibs which built with optimization.
 
-Shared library example:
+Shared library example (crate_type = "cdylib"):
 
 ```rust
 #[cfg_attr(target_os = "linux", link_section = ".init_array")]
@@ -15,7 +15,9 @@ pub extern "C" fn myplugin_initialize() {
 }
 ```
 
-(*NOTE: Using ".ctors" instead of ".init_array" as **link_section** gives same result.*)
+_**NOTE1:** Using ".ctors" instead of ".init_array" as **link_section** gives same result._
+
+_**NOTE2:** Changing **crate-type** from "cdylib" to "dylib" solves this issue, but I actually would like to build "cdylib" not "dylib"._
 
 Expected behavior (dev):
 
