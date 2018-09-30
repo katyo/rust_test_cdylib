@@ -1,0 +1,11 @@
+[package]
+name = "test_cdylib"
+version = "0.1.0"
+authors = ["Kayo <kayo@illumium.org>"]
+
+[lib]
+name = "test_cdylib"
+crate-type = ["cdylib"]
+
+[dependencies]
+libloading = "0.5"
