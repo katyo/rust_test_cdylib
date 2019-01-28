@@ -1,5 +1,7 @@
 # Lack initialization of dylib when it built with optimization
 
+**FOUND SOLUTION:** Adding `#[used]` directive to symbol.
+
 This repo demonstrates strange behavior of dylibs which built with optimization.
 
 Shared library example (crate_type = "cdylib"):
